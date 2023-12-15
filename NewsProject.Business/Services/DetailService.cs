@@ -1,7 +1,12 @@
 ﻿using NewsProject.Model.Models;
 using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace NewsProject.Services
+namespace NewsProject.Business.Services
 {
     public class DetailService
     {
