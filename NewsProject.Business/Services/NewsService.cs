@@ -17,16 +17,25 @@ namespace NewsProject.Business.Services
             _httpClient = httpClient;
         }
 
-        public async Task<List<News>> GetHaberler()
+        public async Task<News> GetNews()
         {
             // API'den JSON verisini çektim
             string jsonUrl = "https://www.turkmedya.com.tr/anasayfa.json";
             string jsonString = await _httpClient.GetStringAsync(jsonUrl);
 
             // JSON verisini News listesine çevirdim
-            List<News> haberler = JsonConvert.DeserializeObject<List<News>>(jsonString);
-
+            News haberler = JsonConvert.DeserializeObject<News>(jsonString);
             return haberler;
         }
+
+        public async Task<List<ItemList>> GetNewsByCategoryId(string categoryId)
+        {
+            string apiUrl = $"https://www.turkmedya.com.tr/category/{categoryId}.json";
+            string jsonString = await _httpClient.GetStringAsync(apiUrl);
+
+            var newsByCategory = JsonConvert.DeserializeObject<List<ItemList>>(jsonString);
+            return newsByCategory;
+        }
+
     }
 }
