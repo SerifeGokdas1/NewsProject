@@ -10,7 +10,7 @@ namespace NewsProject.Model.Models
     public class News
     {
         public int errorCode { get; set; }
-        public object errorMessage { get; set; }
+        public string errorMessage { get; set; }
         public List<Datum> data { get; set; }
     }
 
@@ -21,11 +21,12 @@ namespace NewsProject.Model.Models
         public int itemCountInRow { get; set; }
         public bool lazyLoadingEnabled { get; set; }
         public bool titleVisible { get; set; }
-        public object title { get; set; }
-        public object titleColor { get; set; }
+        public string title { get; set; }
+        public string titleColor { get; set; }
         public string titleBgColor { get; set; }
         public string sectionBgColor { get; set; }
         public List<ItemList> itemList { get; set; }
+        public int totalRecords { get; set; }
     }
     public class ItemList
     {
@@ -48,7 +49,7 @@ namespace NewsProject.Model.Models
 
     public class Category
     {
-        public int CategoryId { get; set; }
+        public string CategoryId { get; set; }
         public string Title { get; set; }
         public string Slug { get; set; }
     }
