@@ -4,13 +4,37 @@
     ViewData["Title"] = "Haberler";
 }
 
-    <h2 class="pagination d-flex justify-content-center">Anasayfa</h2>
+<div class="d-flex justify-content-center">
+    <a href="/News/Index" class="pagination d-flex justify-content-center">Anasayfa ---</a>
+    <a href="/Details/Index" class="pagination d-flex justify-content-center">Detay</a>
+</div>
 
+<br />
+<br />
+
+<form method="get" action="/News/Index" class="pagination d-flex justify-content-center" >
+    <label for="category">Select Category:</label>
+    <select id="category" name="category">
+        <option value="">All Categories</option>
+        @foreach (var category in Model.Categories)
+        {
+            var isSelected = category.CategoryId == Model.SelectedCategory ? "selected" : "";
+            <option value="@category.CategoryId" selected="@isSelected">@category.Title</option>
+        }
+    </select>
+
+    <label for="keyword">Keyword:</label>
+    <input type="text" id="keyword" name="keyword" />
+
+    <input type="submit" value="Filter" />
+</form>
+<br />
 
 
 @foreach (var item in Model.ItemLists)
 {
     <div class="news-item">
+        <img src="@item.imageUrl" alt="Haber Resmi" />
         <h4>@item.title</h4>
         <p>@item.shortText</p>
         <hr />
@@ -24,6 +48,13 @@
 <div class ="pagination d-flex justify-content-center">
     @for (int i = 1; i <= Model.TotalPages; i++)
     {
-        <a href="/News/Index?page=@i" class="mx-1">@i. Sayfa  </a>
+        <a href="/News/Index?page=@i&category=@Model.SelectedCategory&keyword=@Model.Keyword" class="mx-1">@i. Sayfa</a>
     }
 </div>
+
+<style>
+    .news-item img {
+        max-width: 100%; /* Resimlerin genişliğini en fazla  genişliğine sığacak şekilde ayarladım */
+        height: auto;    /* yüksekliğini otomatik ayarladım */
+    }
+</style>

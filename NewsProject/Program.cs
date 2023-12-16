@@ -6,6 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddHttpClient<NewsService>();
+builder.Services.AddHttpClient<DetailService>();
 
 var app = builder.Build();
 // Configure the HTTP request pipeline.

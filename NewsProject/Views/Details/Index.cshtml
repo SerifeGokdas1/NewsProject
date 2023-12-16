@@ -1,0 +1,52 @@
+﻿@model NewsProject.Controllers.DetailsViewModel
+
+@{
+    ViewData["Title"] = "Detay";
+}
+
+<div class="d-flex justify-content-center">
+    <a href="/News/Index" class="pagination d-flex justify-content-center">Anasayfa  </a>
+    <a href="/Details/Index" class="pagination d-flex justify-content-center">  Detay</a>
+</div>
+
+
+<br />
+<br />
+
+<div class="news-item" >
+    <hr />
+    <img src="@Model.Details.data.newsDetail.imageUrl"  alt="Haber Resmi" />
+    <h4>@Model.Details.data.newsDetail.title</h4>
+    <hr />
+    <p>@Html.Raw(Model.Details.data.newsDetail.bodyText)</p>
+    <hr />
+    @foreach (var item in Model.Details.data.itemList)
+    {
+        <div class="news-item">
+            <img src="@item.imageUrl" alt="Haber Resmi" />
+            <h4>@item.title</h4>
+            <p>@Html.Raw(@item.shortText)</p>
+            <video src="@item.videoUrl" ></video>
+            <hr />
+        </div>
+    }
+    <hr />
+    <img src@Model.Details.data.relatedNews.imageUrl" />
+    <h4>@Model.Details.data.relatedNews.title</h4>
+    <p>@Html.Raw(Model.Details.data.relatedNews.shortText)</p>
+
+    <hr />
+
+    <video src="@Model.Details.data.video.videoUrl"></video>
+    <h4>@Model.Details.data.video.title</h4>
+    <p>@Html.Raw(Model.Details.data.video.shortText)</p>
+    <hr/>
+
+
+
+    
+
+</div>
+
+
+
