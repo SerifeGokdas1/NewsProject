@@ -9,7 +9,11 @@ https://github.com/SerifeGokdas1/NewsProject/assets/117410162/3e877b2e-afb3-47b2
 
 
 ### Projenin çıktısı Detay
-Uploading Haberler - Detail NewsProject.mp4…
+
+
+https://github.com/SerifeGokdas1/NewsProject/assets/117410162/2745464f-ae3f-41fc-bfbb-20c0cfee56fb
+
+
 
 ## Projenin kodları
 
